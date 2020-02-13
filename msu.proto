@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package msu;
+
+service DataLoader {
+  rpc LoadData (MsuIn) returns (MsuAnswer) {}
+}
+
+message MsuIn {
+  uint64 Timestamp              = 1;
+  uint32 AndromedaPID           = 2;
+  uint32 AndromedaLID           = 3;
+  uint32 AndromedaPoint         = 4;
+  uint32 Mtp3DPC                = 5;
+  uint32 Mtp3OPC                = 6;
+  uint32 Mtp3NI                 = 7;
+  string SccpCallingAddress     = 8;
+  string SccpCalledAddress      = 9;
+  string TcapMessageType        = 10;
+  uint32 TcapOTID               = 11;
+  uint32 TcapDTID               = 12;
+  uint32 MapOperationalCode     = 13;
+  string MapOperationalCodeName = 14;
+  uint32 CapOperationalCode     = 16;
+  string CapOperationalCodeName = 17;
+  string MessageData            = 18;
+}
+
+message MsuAnswer {
+  uint32 Answer = 1;
+}
